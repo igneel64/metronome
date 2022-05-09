@@ -1,18 +1,22 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
-import { useMetronome } from "../hooks/useMetronome";
-import { useSongs } from "../hooks/useSongs";
+import { useMetronome, useSongs } from "../hooks";
 import { ascendingOrderNumeric } from "../utils/ascendingOrderNumeric";
 import styles from "./BPMSelection.module.scss";
 import { Button } from "./Button";
+import { Error } from "./Error";
 import { Loader } from "./Loader";
 
+const INACTIVE_INDEX = -1;
+
 export function BPMSelection() {
-  const [active, setActive] = useState(-1);
+  const [active, setActive] = useState(INACTIVE_INDEX);
   const { setBpm } = useMetronome();
-  const { songs, loading } = useSongs();
+  const { songs, loading, hasError } = useSongs();
 
   const bpmSet = useMemo(() => uniqueBpmSet(songs), [songs]);
+
+  useEffect(() => setActive(INACTIVE_INDEX), [songs]);
 
   const handleBPMSelection = (bpm: number, idx: number) => {
     setBpm(bpm);
@@ -21,6 +25,10 @@ export function BPMSelection() {
 
   if (loading) {
     return <Loader />;
+  }
+
+  if (hasError) {
+    return <Error />;
   }
 
   return (

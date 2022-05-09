@@ -21,19 +21,28 @@ export const SongsContextProvider = ({
 function useSongsState() {
   const [songs, setSongs] = useState(mockBpm);
   const [loading, setIsLoading] = useState(false);
+  const [hasError, setHasError] = useState(false);
   const { setBpm } = useMetronome();
 
   const fetchSpotifyRecommendations = async () => {
     setIsLoading(true);
-    const spotifySongs = await (await fetch("/api/list-bpm")).json();
-    setSongs(spotifySongs);
-    setBpm(0);
-    setIsLoading(false);
+    setHasError(false);
+
+    try {
+      const spotifySongs = await (await fetch("/api/list-bpm")).json();
+      setSongs(spotifySongs);
+    } catch (err) {
+      setHasError(true);
+    } finally {
+      setBpm(0);
+      setIsLoading(false);
+    }
   };
 
   return {
     songs,
     fetchSpotifyRecommendations,
     loading,
+    hasError,
   };
 }

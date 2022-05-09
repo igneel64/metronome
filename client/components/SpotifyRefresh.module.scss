@@ -6,4 +6,12 @@ $spotify-color: #1ED760;
     font-size: theme.$xxl;
     display: flex;
     align-items: center;
+
+    &:disabled {
+        color: gray;
+
+        path {
+            fill: gray;
+        }
+    }
 }
