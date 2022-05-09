@@ -13,7 +13,11 @@ const customJestConfig = {
   moduleDirectories: ["node_modules", "<rootDir>/"],
   testEnvironment: "jest-environment-jsdom",
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
-  testPathIgnorePatterns: ["<rootDir>/node_modules/", "renderer.tsx"],
+  testPathIgnorePatterns: [
+    "<rootDir>/node_modules/",
+    "renderer.tsx",
+    "<rootDir>/e2e/",
+  ],
 };
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async

@@ -8,7 +8,7 @@ export function SimilarSongs() {
   const similarSongs = mockBpm.filter(([_, __, songBpm]) => songBpm === bpm);
 
   return (
-    <div className={styles.similarSongs}>
+    <div className={styles.similarSongs} data-test-id="similar-songs">
       <p className={styles.note}>Songs that use this BPM:</p>
       {similarSongs.map(([song, performer]) => (
         <p className={styles.song} key={song}>

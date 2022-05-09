@@ -11,7 +11,9 @@ exports[`Pulse renders properly 1`] = `
       <div
         class="innerCircle"
       >
-        <span>
+        <span
+          data-test-id="pulse-text"
+        >
           0
         </span>
       </div>

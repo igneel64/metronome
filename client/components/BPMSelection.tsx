@@ -20,7 +20,7 @@ export function BPMSelection() {
   };
 
   return (
-    <div className={styles.bpmSelection}>
+    <div className={styles.bpmSelection} data-test-id="select-bpm">
       {[...bpmSet].map((bpm, idx) => (
         <Button
           key={`${bpm}-${idx}`}

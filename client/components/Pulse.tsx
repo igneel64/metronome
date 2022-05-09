@@ -8,7 +8,7 @@ export function Pulse() {
     <div className={styles.pulse}>
       <div className={styles.outerCircle}>
         <div className={styles.innerCircle}>
-          <span>{bpm}</span>
+          <span data-test-id="pulse-text">{bpm}</span>
         </div>
       </div>
     </div>

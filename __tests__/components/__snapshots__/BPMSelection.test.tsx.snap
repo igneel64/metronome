@@ -4,6 +4,7 @@ exports[`BPMSelection renders properly 1`] = `
 <div>
   <div
     class="bpmSelection"
+    data-test-id="select-bpm"
   >
     <button
       class="button"
