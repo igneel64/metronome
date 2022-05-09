@@ -1,0 +1,31 @@
+@use './theme';
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: theme.$background;
+  font-family: theme.$font-stack;
+  font-weight: normal;
+  color: theme.$color-primary;
+  font-size: theme.$medium;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* CSS Variables */
+:root {
+  --seconds-per-beat: 0s;
+}

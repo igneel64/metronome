@@ -1,3 +1,11 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "plugins": ["simple-import-sort"],
+  "rules": {
+    "simple-import-sort/imports": "error",
+    "complexity": ["error", 3],
+    "max-nested-callbacks": ["error", 3],
+    "max-depth": ["error", 3],
+    "@next/next/no-title-in-document-head": 0
+  }
 }

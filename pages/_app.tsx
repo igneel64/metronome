@@ -1,8 +1,18 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import "../styles/globals.scss";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+import type { AppProps } from "next/app";
+
+import { Layout } from "../client/components/layout";
+import { MetronomeContextProvider } from "../client/contexts/MetronomeContextProvider";
+
+function MetronomeApp({ Component, pageProps }: AppProps) {
+  return (
+    <MetronomeContextProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </MetronomeContextProvider>
+  );
 }
 
-export default MyApp
+export default MetronomeApp;

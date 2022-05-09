@@ -1,0 +1,11 @@
+.bpmSelection {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+
+    margin-bottom: 1.375rem;
+
+    button {
+        margin-bottom: 0.625rem;
+    }
+}

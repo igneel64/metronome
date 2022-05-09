@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pulse renders properly 1`] = `
+<div>
+  <div
+    class="pulse"
+  >
+    <div
+      class="outerCircle"
+    >
+      <div
+        class="innerCircle"
+      >
+        <span>
+          0
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

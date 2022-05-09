@@ -1,0 +1,21 @@
+@use "../../styles/theme";
+
+$button-background: #2d1c3f;
+$button-color: #8eacff;
+$active-button-background: #8eacff;
+$active-button-color: #161020;
+
+.button {
+    background: $button-background;
+    border-radius: 5px;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.5);
+    color: $button-color;
+    font-size: theme.$small;
+    padding: 0.625rem 0rem;
+    width: 85px;
+}
+
+.active {
+    background: $active-button-background;
+    color: $active-button-color;
+}

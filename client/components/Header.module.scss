@@ -1,0 +1,8 @@
+@use '../../styles/theme';
+
+.header {
+    letter-spacing: 6px;
+    font-weight: normal;
+    font-size: theme.$large;
+    margin-bottom: 3rem;
+}

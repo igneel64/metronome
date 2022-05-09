@@ -1,0 +1,10 @@
+$card-width: 476px;
+
+.card {
+    width: $card-width;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 4rem 5.5rem;
+}

@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BPMSelection renders properly 1`] = `
+<div>
+  <div
+    class="bpmSelection"
+  >
+    <button
+      class="button"
+    >
+      72
+       BPM
+    </button>
+    <button
+      class="button"
+    >
+      74
+       BPM
+    </button>
+    <button
+      class="button"
+    >
+      82
+       BPM
+    </button>
+    <button
+      class="button"
+    >
+      84
+       BPM
+    </button>
+    <button
+      class="button"
+    >
+      87
+       BPM
+    </button>
+    <button
+      class="button"
+    >
+      92
+       BPM
+    </button>
+    <button
+      class="button"
+    >
+      96
+       BPM
+    </button>
+    <button
+      class="button"
+    >
+      128
+       BPM
+    </button>
+    <button
+      class="button"
+    >
+      138
+       BPM
+    </button>
+  </div>
+</div>
+`;
