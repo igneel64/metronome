@@ -5,6 +5,7 @@ const LOCAL_SERVER = "http://localhost:3000/";
 
 test("Basic network error check", async ({ page, context }) => {
   await page.goto(LOCAL_SERVER);
+  await expect(page.locator("data-test-id=error")).toHaveCount(0);
   await context.setOffline(true);
   await page.locator("data-test-id=spotify-refresh").click();
   const errorMessage = await page.locator("data-test-id=error").textContent();

@@ -14,3 +14,4 @@ To run the app:
 To run the tests:
 
 - Run `npm test`
+- Run `npm run test:e2e`
