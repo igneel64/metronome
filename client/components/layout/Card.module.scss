@@ -1,3 +1,5 @@
+@use '../../../styles/mixins';
+
 $card-width: 476px;
 
 .card {
@@ -6,5 +8,10 @@ $card-width: 476px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 4rem 5.5rem;
+
+    @include mixins.for-phone-up {
+        padding: 4rem 5.5rem;
+    }
+
+    padding: 2rem 2.5rem;
 }
