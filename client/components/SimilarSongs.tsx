@@ -1,11 +1,20 @@
-import mockBpm from "../../config/bpm.json";
-import { useMetronome } from "../hooks/useMetronome";
+import { useMemo } from "react";
+
+import { useMetronome, useSongs } from "../hooks";
 import styles from "./SimilarSongs.module.scss";
 
 export function SimilarSongs() {
+  const { songs, loading } = useSongs();
   const { bpm } = useMetronome();
 
-  const similarSongs = mockBpm.filter(([_, __, songBpm]) => songBpm === bpm);
+  const similarSongs = useMemo(
+    () => findSimilarBpmSongs(songs, bpm),
+    [songs, bpm]
+  );
+
+  if (!bpm || loading) {
+    return null;
+  }
 
   return (
     <div className={styles.similarSongs} data-test-id="similar-songs">
@@ -17,4 +26,8 @@ export function SimilarSongs() {
       ))}
     </div>
   );
+}
+
+function findSimilarBpmSongs(songs: (string | number)[][], bpm: number) {
+  return songs.filter(([_, __, songBpm]) => songBpm === bpm);
 }

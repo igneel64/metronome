@@ -5,6 +5,7 @@ import {
   Header,
   Pulse,
   SimilarSongs,
+  SpotifyRefresh,
 } from "../client/components";
 import { Card } from "../client/components/layout";
 
@@ -15,6 +16,7 @@ const Home: NextPage = () => {
       <Pulse />
       <BPMSelection />
       <SimilarSongs />
+      <SpotifyRefresh />
     </Card>
   );
 };

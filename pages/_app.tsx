@@ -5,6 +5,7 @@ import Head from "next/head";
 
 import { Layout } from "../client/components/layout";
 import { MetronomeContextProvider } from "../client/contexts/MetronomeContextProvider";
+import { SongsContextProvider } from "../client/contexts/SongsContextProvider";
 
 function MetronomeApp({ Component, pageProps }: AppProps) {
   return (
@@ -13,9 +14,11 @@ function MetronomeApp({ Component, pageProps }: AppProps) {
         <title>Metronome App</title>
       </Head>
       <MetronomeContextProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <SongsContextProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </SongsContextProvider>
       </MetronomeContextProvider>
     </>
   );

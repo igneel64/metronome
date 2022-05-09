@@ -1,0 +1,39 @@
+import React, { useState } from "react";
+
+import mockBpm from "../../config/bpm.json";
+import { useMetronome } from "../hooks";
+import { SongsContext } from "./SongsContext";
+
+type SongsContextProviderProps = {
+  children: React.ReactNode;
+};
+
+export const SongsContextProvider = ({
+  children,
+}: SongsContextProviderProps) => {
+  const songState = useSongsState();
+
+  return (
+    <SongsContext.Provider value={songState}>{children}</SongsContext.Provider>
+  );
+};
+
+function useSongsState() {
+  const [songs, setSongs] = useState(mockBpm);
+  const [loading, setIsLoading] = useState(false);
+  const { setBpm } = useMetronome();
+
+  const fetchSpotifyRecommendations = async () => {
+    setIsLoading(true);
+    const spotifySongs = await (await fetch("/api/list-bpm")).json();
+    setSongs(spotifySongs);
+    setBpm(0);
+    setIsLoading(false);
+  };
+
+  return {
+    songs,
+    fetchSpotifyRecommendations,
+    loading,
+  };
+}

@@ -15,7 +15,7 @@
     "jsx": "preserve",
     "incremental": true,
     "types": ["jest"],
-    "typeRoots": ["./config/bpm.d.ts"]
+    "typeRoots": ["./config/bpm.d.ts", "./svg.d.ts"]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "__tests__/**/*"],
   "exclude": ["node_modules"]

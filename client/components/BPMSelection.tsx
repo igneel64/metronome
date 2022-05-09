@@ -1,23 +1,27 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
-import mockBpm from "../../config/bpm.json";
 import { useMetronome } from "../hooks/useMetronome";
+import { useSongs } from "../hooks/useSongs";
 import { ascendingOrderNumeric } from "../utils/ascendingOrderNumeric";
 import styles from "./BPMSelection.module.scss";
 import { Button } from "./Button";
-
-const bpmSet = new Set(
-  mockBpm.map(([_, __, bpm]) => Number(bpm)).sort(ascendingOrderNumeric)
-);
+import { Loader } from "./Loader";
 
 export function BPMSelection() {
   const [active, setActive] = useState(-1);
   const { setBpm } = useMetronome();
+  const { songs, loading } = useSongs();
+
+  const bpmSet = useMemo(() => uniqueBpmSet(songs), [songs]);
 
   const handleBPMSelection = (bpm: number, idx: number) => {
     setBpm(bpm);
     setActive(idx);
   };
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <div className={styles.bpmSelection} data-test-id="select-bpm">
@@ -31,5 +35,11 @@ export function BPMSelection() {
         </Button>
       ))}
     </div>
+  );
+}
+
+function uniqueBpmSet(songs: (string | number)[][]) {
+  return new Set(
+    songs.map(([_, __, bpm]) => Number(bpm)).sort(ascendingOrderNumeric)
   );
 }

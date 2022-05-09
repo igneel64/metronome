@@ -1,0 +1,9 @@
+@use "../../styles/theme";
+$spotify-color: #1ED760;
+
+.spotifyButton {
+    color: $spotify-color;
+    font-size: theme.$xxl;
+    display: flex;
+    align-items: center;
+}
